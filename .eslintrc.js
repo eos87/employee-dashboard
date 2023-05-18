@@ -5,6 +5,6 @@ module.exports = {
         "plugin:@typescript-eslint/recommended"
     ],
     rules: {
-
+        "quotes": [2, "double"],
     },
 };
