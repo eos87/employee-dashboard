@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 
-import './index.css';
-import { mainRouter } from './routes';
+import "./index.css";
+import { mainRouter } from "./routes";
+import EmployeeProvider from "./context/EmployeeProvider";
 
 const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
+    document.getElementById("root") as HTMLElement
 );
 root.render(
     <React.StrictMode>
-        <RouterProvider router={mainRouter} />
+        <EmployeeProvider>
+            <RouterProvider router={mainRouter} />
+        </EmployeeProvider>
     </React.StrictMode>
 );

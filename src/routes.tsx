@@ -5,7 +5,7 @@ import { AddEmployee } from "./components/AddEmployee";
 
 export const mainRouter = createBrowserRouter([
     {
-        path: '/',
+        path: "/",
         element: <Navigate to="/dashboard" />
     },
     {
