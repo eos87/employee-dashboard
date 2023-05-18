@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import initialEmployees from "../data/employees.json";
-import { Employee } from "../types";
+import { IEmployee } from "../types";
 import EmployeeContext from "./EmployeeContext";
 
 interface EmployeeProviderProps {
@@ -8,8 +8,8 @@ interface EmployeeProviderProps {
 }
 
 const EmployeeProvider: React.FC<EmployeeProviderProps> = ({ children }) => {
-    const [employees, setEmployees] = useState<Employee[]>(
-        initialEmployees as Employee[]);
+    const [employees, setEmployees] = useState<IEmployee[]>(
+        initialEmployees as IEmployee[]);
 
     return (
         <EmployeeContext.Provider value={{ employees, setEmployees }}>

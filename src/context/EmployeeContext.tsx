@@ -1,9 +1,9 @@
 import React from "react";
-import { Employee } from "../types";
+import { IEmployee } from "../types";
 
 interface EmployeeContextProps {
-    employees: Employee[];
-    setEmployees: React.Dispatch<React.SetStateAction<Employee[]>>;
+    employees: IEmployee[];
+    setEmployees: React.Dispatch<React.SetStateAction<IEmployee[]>>;
 }
 
 const EmployeeContext = React.createContext<EmployeeContextProps>({
