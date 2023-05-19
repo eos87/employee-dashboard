@@ -8,13 +8,7 @@ export const TableHead = () => {
     return (
         <thead>
             <tr>
-                {columns.map(col =>
-                    <HeadCell
-                        {...col}
-                        key={col.label}
-                        onCellClick={() => { console.log("Head click") }}
-                    />
-                )}
+                {columns.map(col => <HeadCell {...col} key={col.label} />)}
             </tr>
         </thead>
     )

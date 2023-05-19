@@ -1,20 +1,46 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import { IColumn } from "./types";
+import { TableContext } from "./context/TableContext";
+import { sortData } from "./utils";
+import { SortIcon } from "./SortIcon";
 
-interface IProps extends IColumn {
-    onCellClick: (columnName: string) => void
-}
-
-export const HeadCell = (props: IProps) => {
-    const { label, name, onCellClick } = props;
+export const HeadCell = (props: IColumn) => {
+    const { label, name: columnName, isNumeric } = props;
+    const {
+        data,
+        sortDirection,
+        setSortDirection,
+        sortColumn,
+        setSortColumn,
+        onDataSorted
+    } = useContext(TableContext);
 
     const handleClick = useCallback(() => {
-        onCellClick(name as string)
-    }, [name, onCellClick]);
+        const isSameColumn = columnName === sortColumn;
+        const isAsceding = sortDirection === "asc";
+        const newSortDirection = (isSameColumn && isAsceding) ? "desc" : "asc";
+        const sortedData = sortData(data, newSortDirection, columnName);
+
+        setSortColumn(columnName);
+        setSortDirection(newSortDirection);
+        onDataSorted(sortedData);
+    }, [
+        columnName,
+        sortDirection,
+        setSortDirection,
+        sortColumn,
+        setSortColumn,
+        data,
+        onDataSorted
+    ]);
 
     return (
         <th onClick={handleClick}>
-            {label}
+            <div className="d-flex flex-row justify-content-between">
+                {label}
+                <SortIcon {
+                    ...{ columnName, sortDirection, sortColumn, isNumeric }} />
+            </div>
         </th>
     )
 }

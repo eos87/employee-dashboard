@@ -5,13 +5,13 @@ import { Table } from "./DataTable/Table";
 import { IEmployee } from "../types";
 
 export const Dashboard = () => {
-    const { employees } = useContext(EmployeeContext);
+    const { employees, setEmployees } = useContext(EmployeeContext);
 
     const columns: IColumn[] = [
-        { label: "Name", name: "name" },
-        { label: "Job Title", name: "jobTitle" },
-        { label: "Tenure", name: "tenure" },
-        { label: "Gender", name: "gender" }
+        { label: "Name", name: "name", isNumeric: false },
+        { label: "Job Title", name: "jobTitle", isNumeric: false },
+        { label: "Tenure", name: "tenure", isNumeric: true },
+        { label: "Gender", name: "gender", isNumeric: false }
     ];
 
     return (
@@ -20,9 +20,10 @@ export const Dashboard = () => {
 
             <div className="table-container">
                 <Table<IEmployee>
-                    className="table table-striped table-employees"
+                    className="table table-striped table-bordered table-employees"
                     columns={columns}
                     data={employees}
+                    onDataSorted={(data) => setEmployees(data)}
                 />
             </div>
         </div>
