@@ -15,6 +15,16 @@ export const Dashboard = () => {
     ];
 
     return (
-        <Table<IEmployee> columns={columns} data={employees} />
+        <div className="p-4">
+            <h3>Corporate Employees</h3>
+
+            <div className="table-container">
+                <Table<IEmployee>
+                    className="table table-striped table-employees"
+                    columns={columns}
+                    data={employees}
+                />
+            </div>
+        </div>
     );
 }

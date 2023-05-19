@@ -6,11 +6,14 @@ import { TableBody } from "./TableBody";
 interface IProps<T> {
     columns: IColumn<T>[];
     data: T[];
+    className: string;
 }
 
-export const Table = <T,>({ columns, data }: IProps<T>) => {
+export const Table = <T,>(props: IProps<T>) => {
+    const { columns, data, className } = props;
+
     return (
-        <table>
+        <table className={className}>
             <TableHead columns={columns} />
             <TableBody columns={columns} data={data} />
         </table>
