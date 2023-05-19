@@ -1,16 +1,13 @@
-import React from "react";
-import { IColumn } from "./types";
+import React, { useContext } from "react";
 import { TableRow } from "./TableRow";
+import { TableContext } from "./context/TableContext";
 
-interface IProps<T> {
-    columns: IColumn<T>[];
-    data: T[];
-}
+export const TableBody = () => {
+    const { data } = useContext(TableContext);
 
-export const TableBody = <T,>({ columns, data }: IProps<T>) => {
     return (
         <tbody>
-            {data.map((rowData) => <TableRow columns={columns} rowData={rowData} />)}
+            {data.map((rowData, id) => <TableRow key={id} rowData={rowData} />)}
         </tbody>
     );
 };

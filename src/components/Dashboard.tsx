@@ -7,11 +7,11 @@ import { IEmployee } from "../types";
 export const Dashboard = () => {
     const { employees } = useContext(EmployeeContext);
 
-    const columns: IColumn<IEmployee>[] = [
-        { label: "Name", key: "name" },
-        { label: "Job Title", key: "jobTitle" },
-        { label: "Tenure", key: "tenure" },
-        { label: "Gender", key: "gender" }
+    const columns: IColumn[] = [
+        { label: "Name", name: "name" },
+        { label: "Job Title", name: "jobTitle" },
+        { label: "Tenure", name: "tenure" },
+        { label: "Gender", name: "gender" }
     ];
 
     return (

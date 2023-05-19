@@ -1,4 +1,5 @@
-export interface IColumn<T> {
+export interface IColumn {
     label: string;
-    key: keyof T;
+    name: string;
 }
+

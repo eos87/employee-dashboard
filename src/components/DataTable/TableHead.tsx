@@ -1,15 +1,20 @@
-import React from "react";
-import { IColumn } from "./types";
+import React, { useContext } from "react";
+import { HeadCell } from "./HeadCell";
+import { TableContext } from "./context/TableContext";
 
-interface IProps<T> {
-    columns: IColumn<T>[]
-}
+export const TableHead = () => {
+    const { columns } = useContext(TableContext);
 
-export const TableHead = <T,>({ columns }: IProps<T>) => {
     return (
         <thead>
             <tr>
-                {columns.map(({ label }) => <th>{label}</th>)}
+                {columns.map(col =>
+                    <HeadCell
+                        {...col}
+                        key={col.label}
+                        onCellClick={() => { console.log("Head click") }}
+                    />
+                )}
             </tr>
         </thead>
     )
