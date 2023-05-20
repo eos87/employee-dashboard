@@ -19,11 +19,11 @@ export const HeadCell = (props: IColumn) => {
         const isSameColumn = columnName === sortColumn;
         const isAsceding = sortDirection === "asc";
         const newSortDirection = (isSameColumn && isAsceding) ? "desc" : "asc";
-        const sortedData = sortData(data, newSortDirection, columnName);
+        const sortedData = sortData(data, columnName, newSortDirection);
 
         setSortColumn(columnName);
         setSortDirection(newSortDirection);
-        onDataSorted(sortedData);
+        onDataSorted(sortedData, columnName, newSortDirection);
     }, [
         columnName,
         sortDirection,

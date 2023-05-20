@@ -12,7 +12,7 @@ describe("sortData", () => {
             { name: "Mario", age: 35 },
             { name: "Sofia", age: 40 },
         ];
-        expect(sortData(data, "asc", "age")).toEqual(expected);
+        expect(sortData(data, "age", "asc")).toEqual(expected);
     });
 
     it("should sort data in descending order for column with numbers", () => {
@@ -26,7 +26,7 @@ describe("sortData", () => {
             { name: "Mario", age: 35 },
             { name: "Andrea", age: 15 },
         ];
-        expect(sortData(data, "desc", "age")).toEqual(expected);
+        expect(sortData(data, "age", "desc")).toEqual(expected);
     });
 
     it("should sort data in ascending order for a column with strings", () => {
@@ -40,6 +40,6 @@ describe("sortData", () => {
             { name: "Mario", age: 35 },
             { name: "Sofia", age: 40 },
         ];
-        expect(sortData(data, "asc", "name")).toEqual(expected);
+        expect(sortData(data, "name", "asc")).toEqual(expected);
     });
 });
