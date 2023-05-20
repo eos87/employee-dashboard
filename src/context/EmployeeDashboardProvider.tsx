@@ -3,11 +3,11 @@ import { IEmployee } from "../types";
 import EmployeeDashboardContext, { LoadStatus } from "./EmployeeDashboardContext";
 import { employeeService } from "../services/employeeService";
 
-interface EmployeeProviderProps {
+export interface EmployeeDashboardProviderProps {
     children: React.ReactNode;
 }
 
-const EmployeeDashboardProvider: React.FC<EmployeeProviderProps> = ({ children }) => {
+const EmployeeDashboardProvider: React.FC<EmployeeDashboardProviderProps> = ({ children }) => {
     const [employees, setEmployees] = useState<IEmployee[]>([]);
     const [initialDataLoadStatus, setInitialDataLoadStatus] = useState<LoadStatus | null>(null);
 

@@ -7,7 +7,7 @@ export enum LoadStatus {
     Failed
 }
 
-interface EmployeeDashboardContextProps {
+export interface EmployeeDashboardContextProps {
     employees: IEmployee[];
     setEmployees: React.Dispatch<React.SetStateAction<IEmployee[]>>;
 

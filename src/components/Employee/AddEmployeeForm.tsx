@@ -96,6 +96,7 @@ export const AddEmployeeForm: React.FC<IProps> = ({ onSubmit, onCancelClick }) =
                 <button
                     type="submit"
                     className="btn btn-primary me-2"
+                    data-testid="add-employee-form-submit-btn"
                 >
                     Add Employee
                 </button>
