@@ -47,7 +47,7 @@ export const DashboardScreen = () => {
                 </div>
             </div>
 
-            <div className="table-container">
+            <div className="table-container" data-testid="dashboard-table-container">
                 <Table<IEmployee>
                     className="table table-striped table-bordered table-employees"
                     columns={columns}

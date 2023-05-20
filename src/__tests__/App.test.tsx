@@ -4,6 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 test("full app rendering takes to dashboard by default", async () => {
     render(<App />);
     expect(screen.getByText(/Corporate Employees/i)).toBeInTheDocument();
+    expect(screen.getByTestId("dashboard-table-container")).not.toBe(null);
 });
 
 test("clicking `Add Employee` button takes to `Add Employee` screen", async () => {
