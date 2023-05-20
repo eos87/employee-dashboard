@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { TableHead } from "./TableHead";
 import { IColumn, SortDirection } from "./types";
 import { TableBody } from "./TableBody";

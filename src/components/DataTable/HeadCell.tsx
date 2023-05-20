@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import { useCallback, useContext } from "react";
 import { IColumn } from "./types";
 import { TableContext } from "./context/TableContext";
 import { sortData } from "./utils";

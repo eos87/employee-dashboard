@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import EmployeeContext, { LoadStatus } from "../context/EmployeeContext";
 import { IColumn } from "./DataTable/types";
 import { Table } from "./DataTable/Table";

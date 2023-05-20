@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { HeadCell } from "./HeadCell";
 import { TableContext } from "./context/TableContext";
 
