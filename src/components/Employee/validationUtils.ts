@@ -1,9 +1,9 @@
-import { FormFields } from "./types";
+import { IEmployee } from "../../types";
 
 type ValidateFn = (value: string) => string;
 
 type ValidationMap = {
-    [field in keyof FormFields]: ValidateFn;
+    [field in keyof IEmployee]: ValidateFn;
 };
 
 const name: ValidateFn = (value) => !value.trim() ? "Name is required" : "";

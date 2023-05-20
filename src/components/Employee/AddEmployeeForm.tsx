@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { InputField } from "../Form/InputField";
 import { SelectField } from "../Form/SelectField";
 import validate from "./validationUtils";
-import { FormFields } from "./types";
+import { IEmployee } from "../../types";
 
 interface IProps {
     onCancelClick: () => void;
@@ -15,13 +15,13 @@ const initialFields = {
     gender: ""
 }
 
-export const AddEmployeeForm: React.FC<IProps> = ({ onCancelClick }) => {
-    const [fields, setFields] = useState<FormFields>({ ...initialFields });
-    const [errors, setErrors] = useState<FormFields>({ ...initialFields });
+export const AddEmployeeForm: React.FC<IProps> = ({ onSubmit, onCancelClick }) => {
+    const [fields, setFields] = useState<IEmployee>({ ...initialFields });
+    const [errors, setErrors] = useState<IEmployee>({ ...initialFields });
 
     const handleChange = useCallback(
         (ev: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-            const field = ev.target.name as keyof FormFields;
+            const field = ev.target.name as keyof IEmployee;
             const value = ev.target.value;
 
             setFields(prevFields => ({ ...prevFields, [field]: value }));

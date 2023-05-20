@@ -1,6 +1,6 @@
-export interface IEmployee {
+export type IEmployee = {
     name: string;
     jobTitle: string;
     tenure: string;
-    gender: "Male" | "Female";
+    gender: string;
 }
