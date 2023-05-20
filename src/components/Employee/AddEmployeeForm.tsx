@@ -82,7 +82,6 @@ export const AddEmployeeForm: React.FC<IProps> = ({ onSubmit, onCancelClick }) =
                 onChange={handleChange}
             />
 
-
             <SelectField
                 name="gender"
                 label="Gender"
@@ -102,8 +101,11 @@ export const AddEmployeeForm: React.FC<IProps> = ({ onSubmit, onCancelClick }) =
                 </button>
 
                 <button
+                    type="button"
                     className="btn btn-outline-secondary"
-                    onClick={onCancelClick}>
+                    onClick={onCancelClick}
+                    data-testid="add-employee-form-cancel-btn"
+                >
                     Cancel
                 </button>
             </div>
