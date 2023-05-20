@@ -39,7 +39,7 @@ export const DashboardScreen = () => {
                     className="table table-striped table-bordered table-employees"
                     columns={columns}
                     data={employees}
-                    onDataSorted={(data) => setEmployees(data)}
+                    onDataSorted={setEmployees}
                     isDataLoading={isDataLoading}
                 />
             </div>
