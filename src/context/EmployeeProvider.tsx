@@ -11,6 +11,9 @@ const EmployeeProvider: React.FC<EmployeeProviderProps> = ({ children }) => {
     const [employees, setEmployees] = useState<IEmployee[]>([]);
     const [initialDataLoadStatus, setInitialDataLoadStatus] = useState<LoadStatus | null>(null);
 
+    const [tableSortColumn, setTableSortColumn] = useState<string>("");
+    const [tableSortDirection, setTableSortDirection] = useState<string>("");
+
     useEffect(() => {
         setInitialDataLoadStatus(LoadStatus.Loading);
         employeeService
@@ -23,7 +26,18 @@ const EmployeeProvider: React.FC<EmployeeProviderProps> = ({ children }) => {
     }, [])
 
     return (
-        <EmployeeContext.Provider value={{ employees, setEmployees, initialDataLoadStatus, setInitialDataLoadStatus }}>
+        <EmployeeContext.Provider
+            value={{
+                employees,
+                setEmployees,
+                initialDataLoadStatus,
+                setInitialDataLoadStatus,
+                tableSortColumn,
+                setTableSortColumn,
+                tableSortDirection,
+                setTableSortDirection
+            }}
+        >
             {children}
         </EmployeeContext.Provider>
     );

@@ -10,7 +10,7 @@ interface IProps<T> {
     columns: IColumn[];
     className: string;
     isDataLoading: boolean;
-    onDataSorted: (data: T[]) => void;
+    onDataSorted: (data: T[], sortColumn: string, sortDirection: string) => void;
 }
 
 export const Table = <T,>(props: IProps<T>) => {

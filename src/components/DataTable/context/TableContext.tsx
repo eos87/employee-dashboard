@@ -8,7 +8,7 @@ export type TableContextProps<T> = {
     setSortDirection: React.Dispatch<React.SetStateAction<SortDirection>>;
     sortColumn: string;
     setSortColumn: React.Dispatch<React.SetStateAction<string>>;
-    onDataSorted: (data: any[]) => void;
+    onDataSorted: (data: any[], sortColumn: string, sortDirection: string) => void;
 }
 
 export const TableContext = React.createContext<TableContextProps<unknown>>({

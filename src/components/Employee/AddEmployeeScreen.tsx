@@ -3,14 +3,23 @@ import { AddEmployeeForm } from "./AddEmployeeForm"
 import { IEmployee } from "../../types"
 import { useContext } from "react"
 import EmployeeContext from "../../context/EmployeeContext"
+import { sortData } from "../DataTable/utils"
+import { SortDirection } from "../DataTable/types"
 
 export const AddEmployeeScreen = () => {
-    const { employees, setEmployees } = useContext(EmployeeContext);
+    const { employees, setEmployees, tableSortColumn, tableSortDirection } = useContext(EmployeeContext);
     const navigate = useNavigate();
     const goToDashboard = () => navigate("/dashboard");
 
     const onFormSubmit = (newEmployee: IEmployee) => {
-        setEmployees([...employees, newEmployee]);
+        let newEmployees = [...employees, newEmployee];
+
+        // check if data was previously sorted to preserve sort order
+        const isDataSorted = !!tableSortColumn.trim();
+        if (isDataSorted)
+            newEmployees = sortData(newEmployees, tableSortColumn, tableSortDirection as SortDirection);
+
+        setEmployees(newEmployees);
         goToDashboard();
     }
 

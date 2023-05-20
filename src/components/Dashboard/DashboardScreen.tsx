@@ -6,7 +6,14 @@ import { IEmployee } from "../../types";
 import { useNavigate } from "react-router-dom";
 
 export const DashboardScreen = () => {
-    const { employees, setEmployees, initialDataLoadStatus } = useContext(EmployeeContext);
+    const {
+        employees,
+        setEmployees,
+        initialDataLoadStatus,
+        setTableSortColumn,
+        setTableSortDirection
+    } = useContext(EmployeeContext);
+
     const columns: IColumn[] = [
         { label: "Name", name: "name", isNumeric: false },
         { label: "Job Title", name: "jobTitle", isNumeric: false },
@@ -16,6 +23,12 @@ export const DashboardScreen = () => {
     const isDataLoading = initialDataLoadStatus === LoadStatus.Loading;
     const navigate = useNavigate();
     const handleAddEmployeeClick = () => navigate("/employee/add");
+
+    const handleOnDataSorted = (employees: IEmployee[], sortColumn: string, sortDirection: string) => {
+        setEmployees([...employees]);
+        setTableSortColumn(sortColumn);
+        setTableSortDirection(sortDirection);
+    };
 
     return (
         <>
@@ -39,7 +52,7 @@ export const DashboardScreen = () => {
                     className="table table-striped table-bordered table-employees"
                     columns={columns}
                     data={employees}
-                    onDataSorted={setEmployees}
+                    onDataSorted={handleOnDataSorted}
                     isDataLoading={isDataLoading}
                 />
             </div>
