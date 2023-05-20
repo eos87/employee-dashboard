@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import EmployeeContext, { LoadStatus } from "../context/EmployeeContext";
-import { IColumn } from "./DataTable/types";
-import { Table } from "./DataTable/Table";
-import { IEmployee } from "../types";
+import EmployeeContext, { LoadStatus } from "../../context/EmployeeContext";
+import { IColumn } from "../DataTable/types";
+import { Table } from "../DataTable/Table";
+import { IEmployee } from "../../types";
 import { useNavigate } from "react-router-dom";
 
-export const Dashboard = () => {
+export const DashboardScreen = () => {
     const { employees, setEmployees, initialDataLoadStatus } = useContext(EmployeeContext);
     const columns: IColumn[] = [
         { label: "Name", name: "name", isNumeric: false },

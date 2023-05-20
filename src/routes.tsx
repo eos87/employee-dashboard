@@ -1,7 +1,7 @@
 import { Navigate } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
-import { Dashboard } from "./components/Dashboard";
-import { AddEmployee } from "./components/AddEmployee";
+import { DashboardScreen } from "./components/Dashboard/DashboardScreen";
+import { AddEmployeeScreen } from "./components/Employee/AddEmployeeScreen";
 
 export const mainRouter = createBrowserRouter([
     {
@@ -10,10 +10,10 @@ export const mainRouter = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <Dashboard />
+        element: <DashboardScreen />
     },
     {
         path: "/employee/add",
-        element: <AddEmployee />
+        element: <AddEmployeeScreen />
     }
 ]);
