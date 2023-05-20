@@ -6,7 +6,7 @@ export const TableHead = () => {
     const { columns } = useContext(TableContext);
 
     return (
-        <thead>
+        <thead data-testid="table-head">
             <tr>
                 {columns.map(col => <HeadCell {...col} key={col.label} />)}
             </tr>

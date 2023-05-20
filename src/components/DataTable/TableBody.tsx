@@ -6,7 +6,7 @@ export const TableBody = () => {
     const { data } = useContext(TableContext);
 
     return (
-        <tbody>
+        <tbody data-testid="table-body">
             {data.map((rowData, id) => <TableRow key={id} rowData={rowData} />)}
         </tbody>
     );
