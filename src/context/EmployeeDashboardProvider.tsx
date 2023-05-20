@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { IEmployee } from "../types";
-import EmployeeContext, { LoadStatus } from "./EmployeeContext";
+import EmployeeDashboardContext, { LoadStatus } from "./EmployeeDashboardContext";
 import { employeeService } from "../services/employeeService";
 
 interface EmployeeProviderProps {
     children: React.ReactNode;
 }
 
-const EmployeeProvider: React.FC<EmployeeProviderProps> = ({ children }) => {
+const EmployeeDashboardProvider: React.FC<EmployeeProviderProps> = ({ children }) => {
     const [employees, setEmployees] = useState<IEmployee[]>([]);
     const [initialDataLoadStatus, setInitialDataLoadStatus] = useState<LoadStatus | null>(null);
 
@@ -26,7 +26,7 @@ const EmployeeProvider: React.FC<EmployeeProviderProps> = ({ children }) => {
     }, [])
 
     return (
-        <EmployeeContext.Provider
+        <EmployeeDashboardContext.Provider
             value={{
                 employees,
                 setEmployees,
@@ -39,8 +39,8 @@ const EmployeeProvider: React.FC<EmployeeProviderProps> = ({ children }) => {
             }}
         >
             {children}
-        </EmployeeContext.Provider>
+        </EmployeeDashboardContext.Provider>
     );
 };
 
-export default EmployeeProvider;
+export default EmployeeDashboardProvider;

@@ -2,12 +2,12 @@ import { useNavigate } from "react-router"
 import { AddEmployeeForm } from "./AddEmployeeForm"
 import { IEmployee } from "../../types"
 import { useContext } from "react"
-import EmployeeContext from "../../context/EmployeeContext"
+import EmployeeDashboardContext from "../../context/EmployeeDashboardContext"
 import { sortData } from "../DataTable/utils"
 import { SortDirection } from "../DataTable/types"
 
 export const AddEmployeeScreen = () => {
-    const { employees, setEmployees, tableSortColumn, tableSortDirection } = useContext(EmployeeContext);
+    const { employees, setEmployees, tableSortColumn, tableSortDirection } = useContext(EmployeeDashboardContext);
     const navigate = useNavigate();
     const goToDashboard = () => navigate("/dashboard");
 

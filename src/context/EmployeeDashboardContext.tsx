@@ -7,7 +7,7 @@ export enum LoadStatus {
     Failed
 }
 
-interface EmployeeContextProps {
+interface EmployeeDashboardContextProps {
     employees: IEmployee[];
     setEmployees: React.Dispatch<React.SetStateAction<IEmployee[]>>;
 
@@ -21,7 +21,7 @@ interface EmployeeContextProps {
     setTableSortDirection: React.Dispatch<React.SetStateAction<string>>
 }
 
-const EmployeeContext = React.createContext<EmployeeContextProps>({
+const EmployeeDashboardContext = React.createContext<EmployeeDashboardContextProps>({
     employees: [],
     setEmployees: () => { },
 
@@ -35,4 +35,4 @@ const EmployeeContext = React.createContext<EmployeeContextProps>({
     setTableSortDirection: () => { }
 });
 
-export default EmployeeContext;
+export default EmployeeDashboardContext;

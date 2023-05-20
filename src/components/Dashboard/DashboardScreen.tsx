@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import EmployeeContext, { LoadStatus } from "../../context/EmployeeContext";
+import EmployeeDashboardContext, { LoadStatus } from "../../context/EmployeeDashboardContext";
 import { IColumn } from "../DataTable/types";
 import { Table } from "../DataTable/Table";
 import { IEmployee } from "../../types";
@@ -12,7 +12,7 @@ export const DashboardScreen = () => {
         initialDataLoadStatus,
         setTableSortColumn,
         setTableSortDirection
-    } = useContext(EmployeeContext);
+    } = useContext(EmployeeDashboardContext);
 
     const columns: IColumn[] = [
         { label: "Name", name: "name", isNumeric: false },

@@ -1,15 +1,15 @@
 import { RouterProvider } from "react-router-dom";
-import EmployeeProvider from "./context/EmployeeProvider"
+import EmployeeDashboardProvider from "./context/EmployeeDashboardProvider"
 import { mainRouter } from "./routes";
 
 export const App = () => {
     return (
-        <EmployeeProvider>
+        <EmployeeDashboardProvider>
             <div className="container">
                 <div className="p-4">
                     <RouterProvider router={mainRouter} />
                 </div>
             </div>
-        </EmployeeProvider>
+        </EmployeeDashboardProvider>
     )
 }
