@@ -5,6 +5,14 @@ import validate from "./validationUtils";
 import { IEmployee } from "../../types";
 
 interface IProps {
+    /**
+     * Executed after the validations run and there are not errors
+     */
+    onSubmit: (employee: IEmployee) => void;
+
+    /**
+     * Executed right after cancel button is clicked
+     */
     onCancelClick: () => void;
 }
 
@@ -30,8 +38,25 @@ export const AddEmployeeForm: React.FC<IProps> = ({ onSubmit, onCancelClick }) =
         []
     );
 
+    const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
+        ev.preventDefault();
+
+        const newErrors = Object.fromEntries(
+            Object.entries(fields).map(([key, value]) => {
+                const field = key as keyof IEmployee;
+                return [key, validate[field](value)];
+            })
+        );
+
+        const hasErrors = Object.values(newErrors).some(x => !!x.length);
+        if (hasErrors)
+            return setErrors(newErrors as IEmployee);
+
+        onSubmit({ ...fields } as IEmployee);
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <InputField
                 name="name"
                 label="Name"
