@@ -11,7 +11,9 @@ export const DashboardScreen = () => {
         setEmployees,
         initialDataLoadStatus,
         setTableSortColumn,
-        setTableSortDirection
+        setTableSortDirection,
+        tableSortColumn,
+        tableSortDirection,
     } = useContext(EmployeeDashboardContext);
 
     const columns: IColumn[] = [
@@ -54,6 +56,8 @@ export const DashboardScreen = () => {
                     data={employees}
                     onDataSorted={handleOnDataSorted}
                     isDataLoading={isDataLoading}
+                    initialSortColumn={tableSortColumn}
+                    initialSortDirection={tableSortDirection}
                 />
             </div>
         </>

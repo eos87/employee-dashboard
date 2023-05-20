@@ -12,7 +12,7 @@ const EmployeeDashboardProvider: React.FC<EmployeeDashboardProviderProps> = ({ c
     const [initialDataLoadStatus, setInitialDataLoadStatus] = useState<LoadStatus | null>(null);
 
     const [tableSortColumn, setTableSortColumn] = useState<string>("");
-    const [tableSortDirection, setTableSortDirection] = useState<string>("");
+    const [tableSortDirection, setTableSortDirection] = useState<string>("asc");
 
     useEffect(() => {
         setInitialDataLoadStatus(LoadStatus.Loading);

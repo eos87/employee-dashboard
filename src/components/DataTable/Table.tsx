@@ -11,12 +11,23 @@ interface IProps<T> {
     className: string;
     isDataLoading: boolean;
     onDataSorted: (data: T[], sortColumn: string, sortDirection: string) => void;
+    initialSortDirection?: string;
+    initialSortColumn?: string;
 }
 
 export const Table = <T,>(props: IProps<T>) => {
-    const { columns, data, className, onDataSorted, isDataLoading } = props;
-    const [sortColumn, setSortColumn] = useState("");
-    const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
+    const {
+        columns,
+        data,
+        className,
+        onDataSorted,
+        isDataLoading,
+        initialSortDirection,
+        initialSortColumn
+    } = props;
+
+    const [sortColumn, setSortColumn] = useState(initialSortColumn as string);
+    const [sortDirection, setSortDirection] = useState<SortDirection>(initialSortDirection as SortDirection);
 
     return (
         <TableContext.Provider value={{
