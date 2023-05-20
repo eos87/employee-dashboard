@@ -3,16 +3,18 @@ import { TableHead } from "./TableHead";
 import { IColumn, SortDirection } from "./types";
 import { TableBody } from "./TableBody";
 import { TableContext } from "./context/TableContext";
+import { TableBodyLoading } from "./TableBodyLoading";
 
 interface IProps<T> {
-    columns: IColumn[];
     data: T[];
+    columns: IColumn[];
     className: string;
+    isDataLoading: boolean;
     onDataSorted: (data: T[]) => void;
 }
 
 export const Table = <T,>(props: IProps<T>) => {
-    const { columns, data, className, onDataSorted } = props;
+    const { columns, data, className, onDataSorted, isDataLoading } = props;
     const [sortColumn, setSortColumn] = useState("");
     const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
 
@@ -28,7 +30,7 @@ export const Table = <T,>(props: IProps<T>) => {
         }}>
             <table className={className}>
                 <TableHead />
-                <TableBody />
+                {isDataLoading ? <TableBodyLoading /> : <TableBody />}
             </table>
         </TableContext.Provider>
     )

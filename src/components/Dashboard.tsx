@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
-import EmployeeContext from "../context/EmployeeContext";
+import EmployeeContext, { LoadStatus } from "../context/EmployeeContext";
 import { IColumn } from "./DataTable/types";
 import { Table } from "./DataTable/Table";
 import { IEmployee } from "../types";
 
 export const Dashboard = () => {
-    const { employees, setEmployees } = useContext(EmployeeContext);
-
+    const { employees, setEmployees, initialDataLoadStatus } = useContext(EmployeeContext);
     const columns: IColumn[] = [
         { label: "Name", name: "name", isNumeric: false },
         { label: "Job Title", name: "jobTitle", isNumeric: false },
         { label: "Tenure", name: "tenure", isNumeric: true },
         { label: "Gender", name: "gender", isNumeric: false }
     ];
+    const isDataLoading = initialDataLoadStatus === LoadStatus.Loading;
 
     return (
         <div className="p-4">
@@ -24,6 +24,7 @@ export const Dashboard = () => {
                     columns={columns}
                     data={employees}
                     onDataSorted={(data) => setEmployees(data)}
+                    isDataLoading={isDataLoading}
                 />
             </div>
         </div>
