@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { TableContext } from "./context/TableContext";
 
 interface IProps {
-    rowData: any; // eslint-disable-line
+    rowData: any;
 }
 
 export const TableRow: React.FC<IProps> = ({ rowData }) => {
