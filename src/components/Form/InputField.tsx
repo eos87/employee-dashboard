@@ -11,8 +11,9 @@ interface InputFieldProps {
 }
 
 export const InputField: React.FC<InputFieldProps> = ({ name, label, value, error, type, onChange }) => (
-    <FieldWrapper label={label} error={error}>
+    <FieldWrapper label={label} error={error} inputName={name}>
         <input
+            id={name}
             name={name}
             value={value}
             onChange={onChange}

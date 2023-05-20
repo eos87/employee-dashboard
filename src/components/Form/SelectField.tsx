@@ -10,8 +10,9 @@ interface SelectFieldProps {
 }
 
 export const SelectField: React.FC<SelectFieldProps> = ({ name, label, value, error, options, onChange }) => (
-    <FieldWrapper label={label} error={error}>
+    <FieldWrapper label={label} error={error} inputName={name}>
         <select
+            id={name}
             name={name}
             value={value}
             onChange={onChange}
