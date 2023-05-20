@@ -6,7 +6,9 @@ export const App = () => {
     return (
         <EmployeeProvider>
             <div className="container">
-                <RouterProvider router={mainRouter} />
+                <div className="p-4">
+                    <RouterProvider router={mainRouter} />
+                </div>
             </div>
         </EmployeeProvider>
     )
