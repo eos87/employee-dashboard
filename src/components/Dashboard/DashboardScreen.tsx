@@ -4,6 +4,8 @@ import { IColumn } from "../DataTable/types";
 import { Table } from "../DataTable/Table";
 import { IEmployee } from "../../types";
 import { useNavigate } from "react-router-dom";
+import { EmployeesByJobTitleChart } from "./EmployeesByJobTitleChart";
+import { EmployeesByGenderChart } from "./EmployeesByGenderChart";
 
 export const DashboardScreen = () => {
     const {
@@ -59,6 +61,26 @@ export const DashboardScreen = () => {
                     initialSortColumn={tableSortColumn}
                     initialSortDirection={tableSortDirection}
                 />
+            </div>
+
+            <div className="row mt-4">
+                <div className="col-6">
+                    <fieldset className="border rounded" style={{ height: 370 }}>
+                        <legend className="fs-5 ms-4 mt-2">
+                            Employees by Job Title
+                        </legend>
+                        <EmployeesByJobTitleChart employees={employees} />
+                    </fieldset>
+                </div>
+
+                <div className="col-6">
+                    <fieldset className="border rounded" style={{ height: 370 }}>
+                        <legend className="fs-5 ms-4 mt-2">
+                            Employees by Gender
+                        </legend>
+                        <EmployeesByGenderChart employees={employees} />
+                    </fieldset>
+                </div>
             </div>
         </>
     );

@@ -9,10 +9,10 @@ body {
 
 .table-container {
     margin-top: 20px;
-    height: 430px;
+    height: 340px;
     overflow-y: auto;
     display: block;
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 .table-employees thead {
