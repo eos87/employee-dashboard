@@ -1,5 +1,6 @@
 import { ResponsivePie } from "@nivo/pie"
 import { IEmployee } from "../../types"
+import { sortData } from "../DataTable/utils";
 
 interface IProps {
     employees: IEmployee[]
@@ -22,9 +23,10 @@ const prepareData = (employees: IEmployee[]) => {
     }, []);
 }
 
-
 export const EmployeesByJobTitleChart: React.FC<IProps> = ({ employees }) => {
-    const chartData = prepareData(employees)
+    // sort them so chart does not move when ordering is changed
+    const sortedEmployees = sortData(employees, "jobTitle", "asc");
+    const chartData = prepareData(sortedEmployees);
 
     return (
         <ResponsivePie
