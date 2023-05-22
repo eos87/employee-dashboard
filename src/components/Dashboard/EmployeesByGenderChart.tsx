@@ -24,7 +24,11 @@ const prepareData = (employees: IEmployee[]) => {
 }
 
 export const EmployeesByGenderChart: React.FC<IProps> = ({ employees, height }) => (
-    <fieldset className="border rounded" style={{ height }}>
+    <fieldset
+        data-testid="employees-gender-chart"
+        className="border rounded"
+        style={{ height }}
+    >
         <legend className="fs-5 ms-4 mt-2">
             Employees by Gender
         </legend>

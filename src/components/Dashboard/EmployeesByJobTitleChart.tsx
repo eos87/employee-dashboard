@@ -31,7 +31,11 @@ export const EmployeesByJobTitleChart: React.FC<IProps> = ({ employees, height }
     const chartData = prepareData(sortedEmployees);
 
     return (
-        <fieldset className="border rounded" style={{ height }}>
+        <fieldset
+            data-testid="employees-job-title-chart"
+            className="border rounded"
+            style={{ height }}
+        >
             <legend className="fs-5 ms-4 mt-2">
                 Employees by Job Title
             </legend>
