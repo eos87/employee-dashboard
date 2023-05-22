@@ -1,6 +1,6 @@
 # Employee Dashboard
 
-[![Employee Dashboard Tests](https://github.com/eos87/employee-dashboard/workflows/RunAppTests/badge.svg)](https://github.com/eos87/employee-dashboard/actions)
+[![Employee Dashboard Tests](https://github.com/eos87/employee-dashboard/actions/workflows/runAppTests.yml/badge.svg)](https://github.com/eos87/employee-dashboard/actions)
 
 Employee Dashboard is a React project that was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It is a simple web app that allows users to see a dashboard with a list of employees, a couple of simple charts and that also allows adding new employees.
 

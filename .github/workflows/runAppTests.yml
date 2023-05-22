@@ -3,17 +3,33 @@ name: RunAppTests
 on: push
 
 jobs:
-    build:
-        name: RunAppTests
+    unit-tests:
+        name: Unit Tests
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18.x]
         steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+
+            - name: Use Node.js 18.x
               uses: actions/setup-node@v3
               with:
-                  node-version: ${{ matrix.node-version }}
-            - run: npm ci
-            - run: npm test
+                  node-version: 18.x
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Run unit tests
+              run: npm test
+
+    end-to-end-tests:
+        name: End-To-End Tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+
+            - name: Run End to End tests
+              uses: cypress-io/github-action@v5
+              with:
+                  start: npm start
+                  wait-on: "http://localhost:3000"
