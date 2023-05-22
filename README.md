@@ -26,6 +26,11 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run e2e`
+
+This command will start the application and run the Cypress end-to-end tests in an Electron headless browser. You will see the output of the tests in your terminal.
+Alternatively, if you want to see the tests in action in-browser (visually running), you can run `npx cypress open` and run them from the manually.
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
