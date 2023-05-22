@@ -1,18 +1,25 @@
-# Getting Started with Create React App
+# Employee Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Employee Dashboard Tests](https://github.com/eos87/employee-dashboard/workflows/RunAppTests/badge.svg)](https://github.com/eos87/employee-dashboard/actions)
 
-## Available Scripts
+Employee Dashboard is a React project that was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It is a simple web app that allows users to see a dashboard with a list of employees, a couple of simple charts and that also allows adding new employees.
 
-In the project directory, you can run:
+### Getting Started
 
-### `npm start`
+To get started with Employee Dashboard, clone the repository to your local machine and run the following commands:
+
+```bash
+npm install
+npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+## Scripts
 
 ### `npm test`
 
