@@ -1,10 +1,11 @@
-import { useNavigate } from "react-router"
-import { AddEmployeeForm } from "./AddEmployeeForm"
-import { IEmployee } from "../../types"
 import { useContext } from "react"
+import { useNavigate } from "react-router"
+import { toast } from "react-toastify"
 import EmployeeDashboardContext from "../../context/EmployeeDashboardContext"
-import { sortData } from "../DataTable/utils"
+import { IEmployee } from "../../types"
 import { SortDirection } from "../DataTable/types"
+import { sortData } from "../DataTable/utils"
+import { AddEmployeeForm } from "./AddEmployeeForm"
 
 export const AddEmployeeScreen = () => {
     const { employees, setEmployees, tableSortColumn, tableSortDirection } = useContext(EmployeeDashboardContext);
@@ -20,6 +21,7 @@ export const AddEmployeeScreen = () => {
             newEmployees = sortData(newEmployees, tableSortColumn, tableSortDirection as SortDirection);
 
         setEmployees(newEmployees);
+        toast("Employee added successfully", { theme: "dark" });
         goToDashboard();
     }
 

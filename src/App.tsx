@@ -1,4 +1,5 @@
 import { RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import EmployeeDashboardProvider from "./context/EmployeeDashboardProvider"
 import { mainRouter } from "./routes";
 
@@ -10,6 +11,7 @@ export const App = () => {
                     <RouterProvider router={mainRouter} />
                 </div>
             </div>
+            <ToastContainer />
         </EmployeeDashboardProvider>
     )
 }
