@@ -51,7 +51,7 @@ export const DashboardScreen = () => {
                 </div>
             </div>
 
-            <div className="table-container" data-testid="dashboard-table-container">
+            <div className="table-container rounded" data-testid="dashboard-table-container">
                 <Table<IEmployee>
                     className="table table-striped table-bordered table-employees"
                     columns={columns}
@@ -64,22 +64,12 @@ export const DashboardScreen = () => {
             </div>
 
             <div className="row mt-4">
-                <div className="col-6">
-                    <fieldset className="border rounded" style={{ height: 370 }}>
-                        <legend className="fs-5 ms-4 mt-2">
-                            Employees by Job Title
-                        </legend>
-                        <EmployeesByJobTitleChart employees={employees} />
-                    </fieldset>
+                <div className="col-12 col-md-6">
+                    <EmployeesByJobTitleChart employees={employees} height={370} />
                 </div>
 
-                <div className="col-6">
-                    <fieldset className="border rounded" style={{ height: 370 }}>
-                        <legend className="fs-5 ms-4 mt-2">
-                            Employees by Gender
-                        </legend>
-                        <EmployeesByGenderChart employees={employees} />
-                    </fieldset>
+                <div className="col-12 col-md-6 mt-md-0 mt-4">
+                    <EmployeesByGenderChart employees={employees} height={370} />
                 </div>
             </div>
         </>

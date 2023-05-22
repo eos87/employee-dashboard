@@ -6,7 +6,7 @@ export const App = () => {
     return (
         <EmployeeDashboardProvider>
             <div className="container">
-                <div className="p-4">
+                <div className="p-0 p-lg-4">
                     <RouterProvider router={mainRouter} />
                 </div>
             </div>
