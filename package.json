@@ -48,5 +48,8 @@
     },
     "volta": {
         "node": "18.16.0"
+    },
+    "devDependencies": {
+        "cypress": "^12.12.0"
     }
 }
