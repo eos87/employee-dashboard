@@ -17,7 +17,7 @@ const EmployeeDashboardProvider: React.FC<EmployeeDashboardProviderProps> = ({ c
     useEffect(() => {
         setInitialDataLoadStatus(LoadStatus.Loading);
         employeeService
-            .fetchInitialEmployees<IEmployee[]>()
+            .fetchInitialEmployees()
             .then((data) => {
                 setInitialDataLoadStatus(LoadStatus.Done);
                 setEmployees(data);

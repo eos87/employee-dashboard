@@ -1,4 +1,6 @@
-async function fetchInitialEmployees<T>(): Promise<T> {
+import { IEmployee } from "../types";
+
+async function fetchInitialEmployees(): Promise<IEmployee[]> {
     try {
         const response = await fetch("/data/employees.json");
 
